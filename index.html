@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <!-- Vega-Lite and Vega-Embed dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .vis-container {
+            margin: 20px auto;
+            width: 640px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello World</h1>
+
+    <!-- Container for the Vega-Lite visualizations -->
+    <div id="vis" class="vis-container"></div>
+
+    <script type="text/javascript">
+      var spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "vconcat": [
+          {
+            "mark": {"type": "text"},
+            "title": {
+              "text": "AFL Australia",
+              "anchor": "middle",
+              "fontSize": 30
+            },
+            "encoding": {
+              "text": {"value": ""}
+            }
+          },
+          {
+            "title": {"text": "Average Goals per Game by Team", "anchor": "start", "fontSize": 18},
+            "data": {
+              "values": [
+                {"Team": "Swans", "Goals": 14.2},
+                {"Team": "Cats", "Goals": 14.2},
+                {"Team": "Bulldogs", "Goals": 13.4},
+                {"Team": "Lions", "Goals": 13.2},
+                {"Team": "Blues", "Goals": 13.6},
+                {"Team": "Hawks", "Goals": 13.3},
+                {"Team": "Giants", "Goals": 13.1},
+                {"Team": "Magpies", "Goals": 12.5},
+                {"Team": "Power", "Goals": 12.1},
+                {"Team": "Dockers", "Goals": 12.4},
+                {"Team": "Suns", "Goals": 12.2},
+                {"Team": "Crows", "Goals": 12.1},
+                {"Team": "Bombers", "Goals": 12.0},
+                {"Team": "Demons", "Goals": 11.3},
+                {"Team": "Saints", "Goals": 11.0},
+                {"Team": "Kangaroos", "Goals": 10.6},
+                {"Team": "Eagles", "Goals": 10.0},
+                {"Team": "Tigers", "Goals": 9.2}
+              ]
+            },
+            "mark": "bar",
+            "encoding": {
+              "x": {"field": "Team", "type": "nominal", "sort": "-y", "title": "AFL Team"},
+              "y": {"field": "Goals", "type": "quantitative", "title": "Average Goals per Game"},
+              "color": {"field": "Team", "type": "nominal"}
+            },
+            "width": 600,
+            "height": 200
+          },
+          {
+            "title": {"text": "Kicks vs Handballs", "anchor": "start", "fontSize": 18},
+            "data": {
+              "values": [
+                {"Team": "Swans", "Kicks": 220.0, "Handballs": 138.1},
+                {"Team": "Cats", "Kicks": 216.3, "Handballs": 135.4},
+                {"Team": "Bulldogs", "Kicks": 216.8, "Handballs": 154.1},
+                {"Team": "Lions", "Kicks": 232.0, "Handballs": 129.0},
+                {"Team": "Blues", "Kicks": 217.1, "Handballs": 142.1},
+                {"Team": "Hawks", "Kicks": 211.4, "Handballs": 149.5},
+                {"Team": "Giants", "Kicks": 209.5, "Handballs": 164.5},
+                {"Team": "Magpies", "Kicks": 203.7, "Handballs": 139.1},
+                {"Team": "Power", "Kicks": 221.1, "Handballs": 127.0},
+                {"Team": "Dockers", "Kicks": 206.4, "Handballs": 160.8},
+                {"Team": "Suns", "Kicks": 201.8, "Handballs": 145.4},
+                {"Team": "Crows", "Kicks": 213.0, "Handballs": 147.9},
+                {"Team": "Bombers", "Kicks": 221.3, "Handballs": 159.1},
+                {"Team": "Demons", "Kicks": 212.8, "Handballs": 132.9},
+                {"Team": "Saints", "Kicks": 226.5, "Handballs": 137.9},
+                {"Team": "Kangaroos", "Kicks": 207.5, "Handballs": 146.1},
+                {"Team": "Eagles", "Kicks": 190.9, "Handballs": 124.9},
+                {"Team": "Tigers", "Kicks": 199.7, "Handballs": 138.5}
+              ]
+            },
+            "mark": "point",
+            "encoding": {
+              "x": {"field": "Kicks", "type": "quantitative", "title": "Kicks"},
+              "y": {"field": "Handballs", "type": "quantitative", "title": "Handballs"},
+              "color": {"field": "Team", "type": "nominal"}
+            },
+            "width": 600,
+            "height": 200
+          }
+        ]
+      };
+
+      // Embed the Vega-Lite visualization into the div with id 'vis'
+      vegaEmbed('#vis', spec);
+    </script>
+
+</body>
+</html>
